@@ -12,6 +12,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import { SideBarComponent } from './delsos/components/side-bar/side-bar.component';
+import { NavBarComponent } from './delsos/components/nav-bar/nav-bar.component';
+import { AdminDashboardComponent } from './delsos/admin-dashboard/admin-dashboard.component';
+import { FooTerComponent } from './delsos/components/foo-ter/foo-ter.component';
+import { StatisticsComponent } from './delsos/statistics/statistics.component';
+import { ShoppersComponent } from './delsos/shoppers/shoppersComponent';
+import { StoresComponent } from './delsos/stores/stores.component';
+import { StoresRequestsComponent } from './delsos/stores-requests/stores-requests.component';
+import { DeliveriesComponent } from './delsos/deliveries/deliveries.component';
 
 
 @NgModule({
@@ -27,7 +36,16 @@ import { ComponentsModule } from './components/components.module';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    SideBarComponent,
+    NavBarComponent,
+    AdminDashboardComponent,
+    FooTerComponent,
+    StatisticsComponent,
+    ShoppersComponent,
+    StoresComponent,
+    StoresRequestsComponent,
+    DeliveriesComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

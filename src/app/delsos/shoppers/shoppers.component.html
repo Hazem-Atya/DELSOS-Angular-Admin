@@ -1,0 +1,84 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0">Table of all shoppers</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Age</th>
+              <th scope="col">Phone number</th>
+              <th scope="col">Email</th>
+              <th scope="col">Previous deliveries</th>
+              <th scope="col">Delivered</th>
+              <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let shopper of shoppers">
+              <th scope="row">
+                <div class="media align-items-center">
+                  <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
+                    <img alt="Image placeholder" src="assets/delsos/profiles/{{shopper.imagePath}}">
+                  </a>
+                  <div class="media-body">
+                    <span class="mb-0 text-sm">{{shopper.name}}</span>
+                  </div>
+                </div>
+              </th>
+              <td>
+                {{shopper.age}}
+              </td>
+              <td>
+                {{shopper.phoneNumber}}
+              </td>
+              <td>
+                {{shopper.email}}
+              </td>
+              <td>
+              {{shopper.previousDeliv}}
+            </td>
+
+              <td>
+                <div class="d-flex align-items-center">
+                  <span class="mr-2">{{shopper.delivered}}%</span>
+                  <div>
+                    <div class="progress">
+                      <div *ngIf="shopper.delivered<=50" class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{shopper.delivered}}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width':shopper.delivered+'%'}" ></div>
+                      <div *ngIf="shopper.delivered>50" class="progress-bar bg-success" role="progressbar" aria-valuenow="{{shopper.delivered}}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width':shopper.delivered+'%'}"></div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="text-right">
+                <div ngbDropdown placement="bottom-right">
+                  <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
+                    <i class="fas fa-ellipsis-v"></i>
+                  </a>
+                  <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
