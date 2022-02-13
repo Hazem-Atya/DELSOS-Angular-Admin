@@ -11,15 +11,25 @@ import {ShoppersComponent} from './delsos/shoppers/shoppersComponent';
 import {StoresComponent} from './delsos/stores/stores.component';
 import {StoresRequestsComponent} from './delsos/stores-requests/stores-requests.component';
 import {DeliveriesComponent} from './delsos/deliveries/deliveries.component';
+import {ShopperInfoComponent} from './delsos/shopper-info/shopper-info.component';
+import {AuthGuard} from './delsos/guards/auth.guard';
+import {SignInComponent} from './delsos/sign-in/sign-in.component';
+import {NotFoundPageComponent} from './delsos/not-found-page/not-found-page.component';
 
 const routes: Routes = [
   {
+    path: 'sign-in',
+    component: SignInComponent,
+  },
+  {
     path: 'admin',
     component: AdminDashboardComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'statistics',
-        component: StatisticsComponent
+        component: StatisticsComponent,
+
       },
       {
         path: 'shoppers',
@@ -36,6 +46,9 @@ const routes: Routes = [
       {
         path: 'deliveries',
         component: DeliveriesComponent
+      }, {
+        path: 'shopper/info/:id',
+        component: ShopperInfoComponent
       },
 
     ]
@@ -64,7 +77,7 @@ const routes: Routes = [
     ]
   }, {
     path: '**',
-    redirectTo: 'dashboard'
+    component:NotFoundPageComponent
   }
 ];
 

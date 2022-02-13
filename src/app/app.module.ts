@@ -21,11 +21,17 @@ import { ShoppersComponent } from './delsos/shoppers/shoppersComponent';
 import { StoresComponent } from './delsos/stores/stores.component';
 import { StoresRequestsComponent } from './delsos/stores-requests/stores-requests.component';
 import { DeliveriesComponent } from './delsos/deliveries/deliveries.component';
+import { ShopperInfoComponent } from './delsos/shopper-info/shopper-info.component';
+import { SignInComponent } from './delsos/sign-in/sign-in.component';
+import {ToastrModule} from 'ngx-toastr';
+import { NotFoundPageComponent } from './delsos/not-found-page/not-found-page.component';
+import {AuthentificationInterceptorProvider} from './delsos/interceptors/auth.interceptor';
 
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     FormsModule,
     HttpClientModule,
     ComponentsModule,
@@ -45,9 +51,15 @@ import { DeliveriesComponent } from './delsos/deliveries/deliveries.component';
     ShoppersComponent,
     StoresComponent,
     StoresRequestsComponent,
-    DeliveriesComponent
+    DeliveriesComponent,
+    ShopperInfoComponent,
+    SignInComponent,
+    NotFoundPageComponent
   ],
-  providers: [],
+  providers: [
+    AuthentificationInterceptorProvider
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

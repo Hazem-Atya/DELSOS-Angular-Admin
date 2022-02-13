@@ -4,4 +4,72 @@
     </div>
   </div>
 </div>
-<p>stores works!</p>
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0">Table of all shoppers</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Age</th>
+              <th scope="col">Phone number</th>
+              <th scope="col">Email</th>
+              <th scope="col">Previous deliveries</th>
+              <th scope="col">Delivered</th>
+              <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="shopper" title="Click here to see shopper infos" [routerLink]="['/admin/shopper/info',shopper._id]"
+                *ngFor="let shopper of currentDisplayedStores">
+              <th scope="row">
+                <div class="media align-items-center">
+                  <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
+                    <img alt="Image placeholder" src="assets/delsos/profiles/{{shopper.imagePath}}">
+                  </a>
+                  <div class="media-body">
+                    <span class="mb-0 text-sm">heey</span>
+                  </div>
+                </div>
+              </th>
+              <td>
+                heey
+              </td>
+              <td>
+                heey
+              </td>
+              <td>
+                heey
+              </td>
+              <td>
+                heey
+              </td>
+
+              <td class="text-right">
+                <div ngbDropdown placement="bottom-right">
+                  <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
+                    <i class="fas fa-ellipsis-v"></i>
+                  </a>
+                  <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                    <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
