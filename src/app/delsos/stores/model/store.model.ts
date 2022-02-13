@@ -6,6 +6,8 @@ export class Address {
 }
 
 export class Store {
+  _id: string;
+  __v: string;
   name: string;
   username: string;
   email: string;
@@ -16,4 +18,14 @@ export class Store {
   phoneNumber: string;
   status: string;
   description: string;
+  source: {
+    filename: { type: String, required: false },
+    mimetype: { type: String, required: false },
+    path: { type: String },
+    originalname: { type: String },
+  };
+  createdAt:Date;
+  updatedAt: Date;
 }
+
+

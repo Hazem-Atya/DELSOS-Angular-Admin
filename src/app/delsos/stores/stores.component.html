@@ -17,38 +17,42 @@
             <thead class="thead-light">
             <tr>
               <th scope="col">Name</th>
-              <th scope="col">Age</th>
+              <th scope="col">username</th>
               <th scope="col">Phone number</th>
               <th scope="col">Email</th>
-              <th scope="col">Previous deliveries</th>
-              <th scope="col">Delivered</th>
+              <th scope="col">Website</th>
+              <th scope="col">Address</th>
               <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
-            <tr class="shopper" title="Click here to see shopper infos" [routerLink]="['/admin/shopper/info',shopper._id]"
-                *ngFor="let shopper of currentDisplayedStores">
+            <tr class="store" title="Click here to see shopper infos" [routerLink]="['/admin/store/info',store._id]"
+                *ngFor="let store of currentDisplayedStores">
               <th scope="row">
                 <div class="media align-items-center">
                   <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                    <img alt="Image placeholder" src="assets/delsos/profiles/{{shopper.imagePath}}">
+                    <img alt="Image placeholder" src="http://localhost:8080/2ac2d48e-6ca2-4d20-b29c-95abba979df4chinese.jpg">
                   </a>
                   <div class="media-body">
-                    <span class="mb-0 text-sm">heey</span>
+                    <span class="mb-0 text-sm">{{store?.name}}</span>
                   </div>
                 </div>
               </th>
               <td>
-                heey
+                {{store?.username}}
               </td>
               <td>
-                heey
+                {{store?.phoneNumber}}
               </td>
               <td>
-                heey
+               {{store?.email}}
               </td>
               <td>
-                heey
+                {{store?.website}}
+              </td>
+              <td>
+                {{store?.address?.address}} {{store?.address?.postalCode}},
+                {{store?.address?.city}}: {{store?.address?.country}}
               </td>
 
               <td class="text-right">
