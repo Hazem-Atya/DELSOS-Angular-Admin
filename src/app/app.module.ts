@@ -26,6 +26,9 @@ import { SignInComponent } from './delsos/sign-in/sign-in.component';
 import {ToastrModule} from 'ngx-toastr';
 import { NotFoundPageComponent } from './delsos/not-found-page/not-found-page.component';
 import {AuthentificationInterceptorProvider} from './delsos/interceptors/auth.interceptor';
+// import {MatDialogModule} from '@angular/material/dialog';
+// import {MatInputModule} from '@angular/material/input';
+// import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -37,7 +40,8 @@ import {AuthentificationInterceptorProvider} from './delsos/interceptors/auth.in
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+
   ],
   declarations: [
     AppComponent,
@@ -54,7 +58,7 @@ import {AuthentificationInterceptorProvider} from './delsos/interceptors/auth.in
     DeliveriesComponent,
     ShopperInfoComponent,
     SignInComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
   ],
   providers: [
     AuthentificationInterceptorProvider

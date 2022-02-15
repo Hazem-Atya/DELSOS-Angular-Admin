@@ -20,7 +20,7 @@ export class StoresComponent implements OnInit {
 
   ngOnInit(): void {
 
-  this.storeService.getAllStores().subscribe(
+  this.storeService.getAllActivatedStores().subscribe(
     {
       next:(response)=>{
         this.currentDisplayedStores=response;

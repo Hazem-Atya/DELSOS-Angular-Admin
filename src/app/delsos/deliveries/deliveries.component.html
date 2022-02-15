@@ -4,4 +4,77 @@
     </div>
   </div>
 </div>
-<p>deliveries works!</p>
+
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h1 class="mb-0">Deliveries</h1>
+        </div>
+        <nav style="background-color: #f6f9fc !important;" class="navbar navbar-expand-lg navbar-light bg-light">
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a [ngClass]="{active:activeLink==1}" (click)="filter(1)" class="nav-link" >All deliveries </a>
+              </li>
+              <li class="nav-item">
+                <a [ngClass]="{active:activeLink==2}" (click)="filter(2)" class="nav-link" >Pending</a>
+              </li>
+              <li class="nav-item">
+                <a [ngClass]="{active:activeLink==3}"  (click)="filter(3)" class="nav-link">On the way</a>
+              </li>
+              <li class="nav-item">
+                <a [ngClass]="{active:activeLink==4}"  (click)="filter(4)"  class="nav-link">Delivered</a>
+              </li>
+
+            </ul>
+          </div>
+        </nav>
+        <br>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+            <tr>
+              <th scope="col">Source</th>
+              <th scope="col">Destination</th>
+              <th scope="col">Priority</th>
+              <th scope="col">Status</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr
+              *ngFor="let delivery of displayedDeliveries"
+              class="delivery" title="Click here to see delivery infos"
+            >
+              <td >
+                {{delivery.source}}
+              </td>
+              <td>
+                {{delivery.destination}}
+              </td>
+              <td>
+                <p  [ngClass]="{
+                'priority':true,
+                'low':delivery.priority == 3,'normal':delivery.priority == 2,'high':delivery.priority == 1}">
+                  {{deliveryPriority[delivery.priority-1]}} </p>
+              </td>
+              <td>
+                <p  [ngClass]="{
+                'priority':true,
+                'low':delivery.status == 2,'normal':delivery.status == 3,'high':delivery.status == 1}">
+                  {{deliveryStatus[delivery.status-1]}} </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

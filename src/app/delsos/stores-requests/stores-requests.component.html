@@ -4,4 +4,97 @@
     </div>
   </div>
 </div>
-<p>stores-requests works!</p>
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h1 class="mb-0">Stores requests</h1>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Website</th>
+              <th scope="col">Accept</th>
+              <th scope="col">Decline</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="store" title="Click here to see store infos"
+                *ngFor="let store of currentDisplayedStores">
+              <th scope="row">
+                <div class="media align-items-center">
+                  <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
+                    <img alt="Image placeholder"
+                         src="http://localhost:8080/uploads/2ac2d48e-6ca2-4d20-b29c-95abba979df4chinese.jpg">
+                  </a>
+                  <div class="media-body">
+                    <span class="mb-0 text-sm">{{store?.name}}</span>
+                  </div>
+                </div>
+              </th>
+
+
+              <td>
+                {{store?.email}}
+              </td>
+              <td>
+                {{store?.website}}
+              </td>
+
+
+              <td  (click)="openModal(store,acceptModal)" class="action">
+                <i class="fas fa-2x fa-check text-green"></i>
+              </td>
+              <td (click)="openModal(store,declineModal)" class="action">
+
+                  <i class="fas fa-2x fa-ban text-red"></i>
+
+              </td>
+
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #acceptModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" >Activate store</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+      <div class="mb-3">
+        <h3>Do you really want to accept store "{{clickedStore.name}}" request?</h3>
+      </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="accept(modal)">Activate</button>
+  </div>
+</ng-template>
+
+<ng-template #declineModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" >Decline store request</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <div class="mb-3">
+      <h3>Do you really want to decline store "{{clickedStore.name}}" request?</h3>
+      <div style="color:red">This operation cannot be undone</div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="declineRequest(modal)">Decline</button>
+  </div>
+</ng-template>
+
+

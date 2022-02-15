@@ -29,7 +29,9 @@ export class ShopperService {
   getShopperById(id: String) {
     return this.http.get<Partial<Shopper>>(CONSTANTS.apiURL + '/shopper/' + id);
   }
-
+  getNumberOfShopper():Observable<number>{
+    return this.http.get<number>(`${CONSTANTS.apiURL}/shopper/number`)
+  }
   getFakeShoppers() {
     return [{
       name: 'hazem', age: 23, phoneNumber: 25969655, email: 'hazem@gmail.com',

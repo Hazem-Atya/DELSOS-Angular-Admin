@@ -13,7 +13,7 @@ export class StoreService {
   constructor(
     private http: HttpClient
   ) { }
-  getAllStores(skip: number=0, limit?: number): Observable<Partial<Store>[]> {
+  getAllActivatedStores(skip: number=0, limit?: number): Observable<Partial<Store>[]> {
 
     const params = new HttpParams({
       fromObject: {
@@ -25,5 +25,29 @@ export class StoreService {
     return this.http.get<Partial<Store>[]>
     (`${CONSTANTS.apiURL}/store/all/activated`,
       {params: params});
+  }
+
+  getAllDesactivatedStores(skip: number=0, limit?: number): Observable<Partial<Store>[]> {
+
+    const params = new HttpParams({
+      fromObject: {
+        skip: skip,
+        limit: limit,
+      }
+    });
+
+    return this.http.get<Partial<Store>[]>
+    (`${CONSTANTS.apiURL}/store/all/deactivated`,
+      {params: params});
+  }
+
+  acceptStoreRequest(id):Observable<Store>{
+   return this.http.get<Store> (`${CONSTANTS.apiURL}/store/activate/${id}`);
+  }
+  deleteStore(id):Observable<Store>{
+    return this.http.delete<Store> (`${CONSTANTS.apiURL}/store/delete/${id}`);
+  }
+  getNumberOfStores():Observable<number>{
+    return this.http.get<number>(`${CONSTANTS.apiURL}/store/number`)
   }
 }
