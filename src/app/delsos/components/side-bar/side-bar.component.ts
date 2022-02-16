@@ -26,7 +26,8 @@ export class SideBarComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.menuItems = NAV_ROUTES.filter(menuItem => menuItem);
+    this.menuItems=NAV_ROUTES;
+    //this.menuItems = NAV_ROUTES.filter(menuItem => menuItem);
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
     });

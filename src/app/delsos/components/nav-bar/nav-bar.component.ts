@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {Router} from '@angular/router';
-import {ROUTES} from '../../../components/sidebar/sidebar.component';
+//import {ROUTES} from '../../../components/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-nav-bar',
@@ -23,7 +23,7 @@ export class NavBarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.listTitles = ROUTES.filter(listTitle => listTitle);
+//    this.listTitles = ROUTES.filter(listTitle => listTitle);
   }
 
   getTitle() {
